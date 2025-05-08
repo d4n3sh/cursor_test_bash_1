@@ -5,8 +5,7 @@ stages:
 lint:
   image: ubuntu:22.04
   before_script:
-    - apt-get update
-    - apt-get install -y shellcheck
+    - apt-get update && apt-get install -y shellcheck
   script:
     - shellcheck hello.sh
   rules:
