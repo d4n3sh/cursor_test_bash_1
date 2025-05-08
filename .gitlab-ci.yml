@@ -5,7 +5,7 @@ stages:
 lint:
   image: koalaman/shellcheck:latest
   script:
-    - find . -type f -name "*.sh" -exec shellcheck {} \;
+    - ./run_shellcheck.sh
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
