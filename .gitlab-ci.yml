@@ -7,7 +7,7 @@ stages:
 lint:
   image: koalaman/shellcheck:latest
   script:
-    - shellcheck hello.sh
+    - shellcheck --shell=bash hello.sh
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
