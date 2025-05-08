@@ -3,9 +3,12 @@ stages:
   - test
 
 lint:
-  image: koalaman/shellcheck:latest
+  image: ubuntu:22.04
+  before_script:
+    - apt-get update
+    - apt-get install -y shellcheck
   script:
-    - ./run_shellcheck.sh
+    - shellcheck hello.sh
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
