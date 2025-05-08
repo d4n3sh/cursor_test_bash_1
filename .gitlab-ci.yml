@@ -1,21 +1,17 @@
-image: bats/bats:latest
-
 stages:
   - lint
   - test
 
 lint:
   image: koalaman/shellcheck:latest
-  before_script:
-    - pwd
-    - ls -la
   script:
-    - shellcheck -s bash hello.sh
+    - find . -type f -name "*.sh" -exec shellcheck {} \;
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
 test:
+  image: bats/bats:latest
   script:
     - bats hello_test.bats
   rules:
