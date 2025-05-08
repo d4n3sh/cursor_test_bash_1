@@ -1,0 +1,10 @@
+# Enable all checks
+enable=all
+
+# Disable specific checks that might be too strict for our use case
+disable=SC2034  # Unused variables (we might want to keep some for readability)
+disable=SC2086  # Double quote to prevent globbing and word splitting
+disable=SC2154  # Referenced but not assigned (for variables that might be set by other scripts)
+
+# Set shell dialect
+shell=bash 
