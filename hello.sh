@@ -2,10 +2,12 @@
 
 say_hello() {
     # Prompt for first name
-    read -r -p "Enter your first name: " first_name
+    printf "Enter your first name: "
+    read -r first_name
     
     # Prompt for last name
-    read -r -p "Enter your last name: " last_name
+    printf "Enter your last name: "
+    read -r last_name
     
     # Output the greeting with the full name
     echo "Hello World! Welcome ${first_name} ${last_name}!"
